@@ -37,9 +37,4 @@ public class UIManager : MonoBehaviour
         InventoryUI.InitInventoryUI();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

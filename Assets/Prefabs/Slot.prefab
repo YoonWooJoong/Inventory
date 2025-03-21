@@ -213,6 +213,9 @@ MonoBehaviour:
   itemImage: {fileID: 4695432738812962628}
   EquipImage: {fileID: 8761435800259199573}
   index: 0
+  slotButton: {fileID: 87663367463840091}
+  isEquip: 0
+  itemData: {fileID: 0}
 --- !u!1 &8761435800259199573
 GameObject:
   m_ObjectHideFlags: 0

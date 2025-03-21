@@ -29,16 +29,6 @@ public class GameManager : MonoBehaviour
         SetData();
     }
 
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void SetData()
     {

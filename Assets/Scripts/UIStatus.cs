@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
@@ -9,18 +10,24 @@ public class UIStatus : MonoBehaviour
     public TextMeshProUGUI defence;
     public TextMeshProUGUI health;
     public TextMeshProUGUI critical;
+    public Button closeButton;
 
     private void Start()
     {
+        closeButton.onClick.AddListener(OnCloseButton);
         UpdateUI(GameManager.Instance.Player);
     }
-    private void UpdateUI(Character player)
+    public void UpdateUI(Character player)
     {
-        Debug.Log($"{player.attack}");
         attack.text = $"{player.attack}";
         defence.text = $"{player.defence}";
         health.text = $"{player.health}";
         critical.text = $"{player.critical}";
 
+    }
+    public void OnCloseButton()
+    {
+        UIManager.instance.MainButtons.SetActive(true);
+        UIManager.instance.StatusUI.gameObject.SetActive(false);
     }
 }

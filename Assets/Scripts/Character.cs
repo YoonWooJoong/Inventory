@@ -42,8 +42,22 @@ public class Character : MonoBehaviour
         }
         addItem?.Invoke();
     }
-    
 
+    public void Equip(Character player, Item item)
+    {
+        player.attack += item.attack;
+        player.defence += item.defence;
+        player.health += item.health;
+        player.critical += item.critical;
+    }
+
+    public void UnEquip(Character player, Item item)
+    {
+        player.attack -= item.attack;
+        player.defence -= item.defence;
+        player.health -= item.health;
+        player.critical -= item.critical;
+    }
     
 
 

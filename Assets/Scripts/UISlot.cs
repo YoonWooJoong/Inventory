@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class UISlot : MonoBehaviour
 {
     [SerializeField] private Image itemImage;
-    [SerializeField] private GameObject EquipImage;
     [SerializeField] private int index;
+    public GameObject EquipImage;
+    public Button slotButton;
     public bool isEquip;
     public Item itemData;
 
@@ -17,7 +18,13 @@ public class UISlot : MonoBehaviour
         index = _index;
         EquipImage.SetActive(false);
         GameManager.Instance.Player.addItem += RefreshUI;
+        slotButton.onClick.AddListener(OnSelectItem);
         
+    }
+
+    public void OnSelectItem()
+    {
+        UIManager.instance.InventoryUI.OnSelectItem(index);
     }
 
     private void RefreshUI()
