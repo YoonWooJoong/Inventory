@@ -9,11 +9,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject mainButtons;
     public GameObject MainButtons { get { return mainButtons; }}
 
-    [SerializeField] private GameObject statusUI;
-    public GameObject StatusUI { get { return statusUI; }}
+    [SerializeField] private UIStatus statusUI;
+    public UIStatus StatusUI { get { return statusUI; }}
 
-    [SerializeField] private GameObject inventoryUI;
-    public GameObject InventoryUI { get { return inventoryUI; }}
+    [SerializeField] private UIInventory inventoryUI;
+    public UIInventory InventoryUI { get { return inventoryUI; }}
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InventoryUI.InitInventoryUI();
     }
 
     // Update is called once per frame

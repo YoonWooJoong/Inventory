@@ -10,12 +10,17 @@ public class UIStatus : MonoBehaviour
     public TextMeshProUGUI health;
     public TextMeshProUGUI critical;
 
-    public void UpdateUI(Character player)
+    private void Start()
     {
-        attack.text = $"{player.Attack}";
-        defence.text = $"{player.Defence}";
-        health.text = $"{player.Health}";
-        critical.text = $"{player.Critical}";
+        UpdateUI(GameManager.Instance.Player);
+    }
+    private void UpdateUI(Character player)
+    {
+        Debug.Log($"{player.attack}");
+        attack.text = $"{player.attack}";
+        defence.text = $"{player.defence}";
+        health.text = $"{player.health}";
+        critical.text = $"{player.critical}";
 
     }
 }

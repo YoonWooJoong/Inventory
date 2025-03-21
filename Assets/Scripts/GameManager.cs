@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    [SerializeField] Character playerPrefab;
     private Character player;
 
     public Character Player
@@ -11,9 +13,25 @@ public class GameManager : MonoBehaviour
         get { return player; }
         set { player = value; }
     }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if(Instance != this)
+                Destroy(gameObject);
+        }
+        player = Instantiate(playerPrefab);
+        SetData();
+    }
+
     void Start()
     {
-        SetData();
+
     }
 
     // Update is called once per frame
@@ -24,6 +42,6 @@ public class GameManager : MonoBehaviour
 
     private void SetData()
     {
-        Player = new Character();
+        Player.Init(Player);
     }
 }

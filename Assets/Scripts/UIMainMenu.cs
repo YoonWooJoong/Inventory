@@ -8,6 +8,7 @@ public class UIMainMenu : MonoBehaviour
 {
     public Button statusButton;
     public Button inventoryButton;
+    public Button additemButton;
 
     public TextMeshProUGUI id;
     public TextMeshProUGUI lv;
@@ -17,6 +18,8 @@ public class UIMainMenu : MonoBehaviour
     {
         statusButton.onClick.AddListener(OpenStatus);
         inventoryButton.onClick.AddListener(OpenInventory);
+        additemButton.onClick.AddListener(OnAddItem);
+        UpdateUI(GameManager.Instance.Player);
     }
 
     public void OpenMainButton()
@@ -27,13 +30,25 @@ public class UIMainMenu : MonoBehaviour
     public void OpenStatus()
     {
         UIManager.instance.MainButtons.SetActive(false);
-        UIManager.instance.StatusUI.SetActive(true);
+        UIManager.instance.StatusUI.gameObject.SetActive(true);
     }
 
     public void OpenInventory()
     {
         UIManager.instance.MainButtons.SetActive(false);
-        UIManager.instance.InventoryUI.SetActive(true);
+        UIManager.instance.InventoryUI.gameObject.SetActive(true);
+    }
+
+    private void UpdateUI(Character player)
+    {
+        id.text = player.name;
+        lv.text = $"{player.level}";
+        lvBarText.text = $"{player.exp}/{player.maxExp}";
+    }
+
+    public void OnAddItem()
+    {
+        GameManager.Instance.Player.Additem();
     }
 
 }
