@@ -8,9 +8,8 @@ public class UIInventory : MonoBehaviour
     public Button closeButton;
     public UISlot uiSlot;
     public List<UISlot> slotList;
-    public Transform slots;
+    public RectTransform slots;
     private int slotsCount = 21;
-
 
     private void Start()
     {
@@ -19,6 +18,7 @@ public class UIInventory : MonoBehaviour
 
     public void InitInventoryUI()
     {
+        slotsCount = Mathf.CeilToInt(slots.rect.height / 70);
         for (int i = 0; i < slotsCount; i++)
         {
             slotList.Add(Instantiate(uiSlot));
