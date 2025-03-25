@@ -13,6 +13,7 @@ public class UIMainMenu : MonoBehaviour
     public TextMeshProUGUI id;
     public TextMeshProUGUI lv;
     public TextMeshProUGUI lvBarText;
+    public TextMeshProUGUI money;
 
     void Start()
     {
@@ -44,6 +45,7 @@ public class UIMainMenu : MonoBehaviour
         id.text = player.name;
         lv.text = $"{player.level}";
         lvBarText.text = $"{player.exp}/{player.maxExp}";
+        money.text = $"{player.money}";
     }
 
     public void OnAddItem()
