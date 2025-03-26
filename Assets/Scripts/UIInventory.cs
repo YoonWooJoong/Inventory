@@ -16,6 +16,9 @@ public class UIInventory : MonoBehaviour
         closeButton.onClick.AddListener(OnCloseButton);
     }
 
+    /// <summary>
+    /// 인벤토리 초기설정
+    /// </summary>
     public void InitInventoryUI()
     {
         slotsCount = Mathf.CeilToInt(slots.rect.height / 70);
@@ -28,6 +31,10 @@ public class UIInventory : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 슬롯을 눌렀다면
+    /// </summary>
+    /// <param name="index"></param>
     public void OnSelectItem(int index)
     {
         if (slotList[index].itemData == null)
@@ -51,6 +58,9 @@ public class UIInventory : MonoBehaviour
         UIManager.instance.StatusUI.UpdateUI(GameManager.Instance.Player);
     }
 
+    /// <summary>
+    /// 닫기 버튼
+    /// </summary>
     public void OnCloseButton()
     {
         UIManager.instance.MainButtons.SetActive(true);

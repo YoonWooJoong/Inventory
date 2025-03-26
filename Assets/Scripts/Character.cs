@@ -18,6 +18,10 @@ public class Character : MonoBehaviour
 
     public Action addItem;
 
+    /// <summary>
+    /// 플레이어 초기 세팅
+    /// </summary>
+    /// <param name="player"></param>
     public void Init(Character player)
     {
         player.name = "GiGa";
@@ -33,7 +37,9 @@ public class Character : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// 아이템 추가
+    /// </summary>
     public void Additem()
     {
         for (int i = 0; i < inventory.Count; i++)
@@ -43,6 +49,11 @@ public class Character : MonoBehaviour
         addItem?.Invoke();
     }
 
+    /// <summary>
+    /// 아이템 장착시 스텟 증가
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="item"></param>
     public void Equip(Character player, Item item)
     {
         player.attack += item.attack;
@@ -51,6 +62,11 @@ public class Character : MonoBehaviour
         player.critical += item.critical;
     }
 
+    /// <summary>
+    /// 아이템 장착해제시 스텟 하락
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="item"></param>
     public void UnEquip(Character player, Item item)
     {
         player.attack -= item.attack;

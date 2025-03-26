@@ -12,7 +12,10 @@ public class UISlot : MonoBehaviour
     public bool isEquip;
     public Item itemData;
 
-
+    /// <summary>
+    ///  슬롯 초기 설정
+    /// </summary>
+    /// <param name="_index"></param>
     public void SetItem(int _index)
     {
         index = _index;
@@ -22,11 +25,17 @@ public class UISlot : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// 슬롯 선택시
+    /// </summary>
     public void OnSelectItem()
     {
         UIManager.instance.InventoryUI.OnSelectItem(index);
     }
 
+    /// <summary>
+    /// 슬롯이미지 변경
+    /// </summary>
     private void RefreshUI()
     {
         if (itemData != null)

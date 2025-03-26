@@ -17,6 +17,11 @@ public class UIStatus : MonoBehaviour
         closeButton.onClick.AddListener(OnCloseButton);
         UpdateUI(GameManager.Instance.Player);
     }
+
+    /// <summary>
+    /// statusUI 텍스트 변경
+    /// </summary>
+    /// <param name="player"></param>
     public void UpdateUI(Character player)
     {
         attack.text = $"{player.attack}";

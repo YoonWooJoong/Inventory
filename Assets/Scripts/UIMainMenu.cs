@@ -40,6 +40,10 @@ public class UIMainMenu : MonoBehaviour
         UIManager.instance.InventoryUI.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 메인UI텍스트 업데이트
+    /// </summary>
+    /// <param name="player"></param>
     private void UpdateUI(Character player)
     {
         id.text = player.name;
@@ -48,6 +52,9 @@ public class UIMainMenu : MonoBehaviour
         money.text = $"{player.money}";
     }
 
+    /// <summary>
+    /// 버튼으로 아이템 추가
+    /// </summary>
     public void OnAddItem()
     {
         GameManager.Instance.Player.Additem();

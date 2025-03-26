@@ -11,11 +11,4 @@ public class Item : MonoBehaviour
     public float health;
     public float critical;
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
